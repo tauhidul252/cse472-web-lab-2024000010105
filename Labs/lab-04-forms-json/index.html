@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Workshop Registration System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Student Workshop Registration System</h1>
+            <p>Department of Computer Science and Engineering | Southeast University</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Workshop Registration</h2>
+            <p class="description">Complete the form to save your workshop registration as JSON in your browser.</p>
+
+            <form id="registrationForm" onsubmit="event.preventDefault(); submitRegistration();">
+                <div class="form-group">
+                    <label for="studentName">Full Name *</label>
+                    <input type="text" id="studentName" name="studentName" placeholder="e.g. Tanvir Ahmed" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentId">Student ID *</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="e.g. 2024000010105" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email Address *</label>
+                    <input type="email" id="studentEmail" name="studentEmail" placeholder="student@seu.edu.bd" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="workshop">Workshop *</label>
+                    <select id="workshop" name="workshop" required>
+                        <option value="">Select a workshop</option>
+                        <option value="HTML Basics">HTML Basics</option>
+                        <option value="CSS Basics">CSS Basics</option>
+                        <option value="JavaScript Basics">JavaScript Basics</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-submit" onclick="submitRegistration()">Register</button>
+                <p id="formMessage" class="form-message" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>JSON Output</h2>
+            <pre id="jsonOutput">No registration saved yet.</pre>
+        </section>
+
+        <section class="card">
+            <h2>Saved Registration</h2>
+            <button type="button" class="btn btn-info" onclick="showSavedRegistration()">Show Saved Registration</button>
+            <button type="button" class="btn btn-secondary" onclick="clearRegistration()">Clear Saved Registration</button>
+            <p id="savedMessage" class="status-output" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>CSE472 Web and Internet Programming Lab | Lab 04</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
