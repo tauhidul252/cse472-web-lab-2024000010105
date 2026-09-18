@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Workshop Registration System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Student Workshop Registration System</h1>
+            <p>Department of Computer Science and Engineering | Southeast University</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Upcoming Workshop: Web & Internet Programming</h2>
+            <p class="description">
+                Join us for an interactive workshop to learn modern HTML, CSS, JavaScript, and PHP fundamentals.
+                Build responsive web applications and server-side forms step by step.
+            </p>
+
+            <div class="workshop-info">
+                <p><strong>Date:</strong> October 25, 2026</p>
+                <p><strong>Speaker:</strong> Department Senior Faculty</p>
+            </div>
+
+            <div class="interactive-box">
+                <h3>Live Status & Seat Availability</h3>
+
+                <div class="action-item">
+                    <button type="button" class="btn btn-secondary">Check Registration Status</button>
+                    <p class="status-output">Registration is currently open.</p>
+                </div>
+
+                <div class="action-item">
+                    <button type="button" class="btn btn-secondary">Check Seat Availability</button>
+                    <p class="status-output">Seats are available. Remaining seats: 12</p>
+                </div>
+
+                <div class="action-item">
+                    <button type="button" class="btn btn-info">Show Venue & Timing</button>
+                    <p class="status-output">Venue: Lab 302, Building B | Time: 10:00 AM - 1:00 PM</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Student Registration Form</h2>
+            <form action="process.php" method="post">
+                <div class="form-group">
+                    <label for="studentName">Full Name *</label>
+                    <div class="input-inline">
+                        <input type="text" id="studentName" name="studentName" placeholder="e.g. Tanvir Ahmed" required>
+                        <button type="button" class="btn btn-primary" onclick="showGreeting()">Show Greeting</button>
+                    </div>
+                    <p id="greetingMessage" class="greeting-output"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentId">Student ID *</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="e.g. 2024000010105" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Institutional Email *</label>
+                    <input type="email" id="studentEmail" name="studentEmail" placeholder="student@seu.edu.bd" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="department">
+                        <option value="CSE">Computer Science and Engineering</option>
+                        <option value="EEE">Electrical and Electronic Engineering</option>
+                        <option value="Textile">Textile Engineering</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="workshop">Workshop *</label>
+                    <select id="workshop" name="workshop" required>
+                        <option value="">Select a workshop</option>
+                        <option value="HTML Basics">HTML Basics</option>
+                        <option value="CSS Basics">CSS Basics</option>
+                        <option value="JavaScript Basics">JavaScript Basics</option>
+                        <option value="PHP Basics">PHP Basics</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Submit Registration</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>CSE472 Web and Internet Programming Lab | Lab 06</p>
+        </div>
+    </footer>
+
+    <script>
+        function showGreeting() {
+            const name = document.getElementById('studentName').value.trim();
+            const output = document.getElementById('greetingMessage');
+
+            if (name !== '') {
+                output.textContent = 'Welcome, ' + name + '! Thank you for registering.';
+            } else {
+                output.textContent = 'Please enter your full name above.';
+            }
+        }
+    </script>
+</body>
+</html>
